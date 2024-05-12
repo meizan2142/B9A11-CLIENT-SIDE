@@ -19,7 +19,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <img className="w-28 md:w-32 lg:w-36" src="/jobhub-logo.svg" alt="" />
+                <img className="w-20 md:w-32 lg:w-36" src="/jobhub-logo.svg" alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -27,13 +27,13 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end lg:gap-4 gap-2">
-                <input type="checkbox" className="toggle toggle-md" checked />
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
+                <input type="checkbox" className="toggle toggle-md" />
+                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar hidden lg:flex">
+                    <div className="w-10 rounded-full ">
                         <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                     </div>
                 </div>
-                <NavLink className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">Login</NavLink>
+                <NavLink to='/login' className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">Login</NavLink>
             </div>
         </div>
     );
