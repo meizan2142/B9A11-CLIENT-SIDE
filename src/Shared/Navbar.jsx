@@ -5,7 +5,7 @@ const Navbar = () => {
         <NavLink className='lg:mr-7 font-bold text-base' to='/'>Home</NavLink>
         <NavLink className='lg:mr-7 font-bold text-base' to='/alljobs'>All Jobs</NavLink>
         <NavLink className='lg:mr-7 font-bold text-base' to='/alljobs'>Applied Jobs</NavLink>
-        <NavLink className='lg:mr-7 font-bold text-base' to='/alljobs'>Add a Job</NavLink>
+        <NavLink className='lg:mr-7 font-bold text-base' to='/addjobs'>Add a Job</NavLink>
         <NavLink className='font-bold text-base' to='/alljobs'>My Jobs</NavLink>
     </>
     return (
@@ -28,12 +28,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-end lg:gap-4 gap-2">
                 <input type="checkbox" className="toggle toggle-md" />
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar hidden lg:flex">
+                <div tabIndex={0} role="button" className="btn btn-circle avatar  hidden lg:flex">
                     <div className="w-10 rounded-full ">
-                        <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />  
                     </div>
                 </div>
-                    <NavLink to='/login' className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">Login</NavLink>
+                <NavLink to='/login' className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">Login</NavLink>
             </div>
         </div>
     );
