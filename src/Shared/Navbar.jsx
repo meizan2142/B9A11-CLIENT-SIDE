@@ -33,7 +33,7 @@ const Navbar = () => {
                         <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                     </div>
                 </div>
-                <NavLink to='/login' className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">Login</NavLink>
+                    <NavLink to='/login' className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">Login</NavLink>
             </div>
         </div>
     );
