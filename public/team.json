@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "img": "https://i.ibb.co/MpfVCTx/marc.png",
+        "name": "Elon Musk",
+        "position": "Marketing Crew",
+        "rating": 4.5
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co/h1dGTH6/marc2.png",
+        "name": "Bernard Arnault",
+        "position": "Marketing Crew",
+        "rating": 4.2
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co/PCSTR03/marc3.png",
+        "name": "Jeff Bezos",
+        "position": "Marketing Crew",
+        "rating": 4.8
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co/QKPcFgx/marc4.png",
+        "name": "Bill Gates",
+        "position": "Marketing Crew",
+        "rating": 4.7
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co/WDDLxDC/marc5.png",
+        "name": "Larry Ellison",
+        "position": "Marketing Crew",
+        "rating": 4.6
+    },
+    {
+        "id": 6,
+        "img": "https://i.ibb.co/WFFLpN6/marc6.png",
+        "name": "Sergey Brin",
+        "position": "Marketing Crew",
+        "rating": 4.4
+    },
+    {
+        "id": 7,
+        "img": "https://i.ibb.co/MMM4jN2/marc7.png",
+        "name": "Mark Zucker",
+        "position": "Marketing Crew",
+        "rating": 4.3
+    },
+    {
+        "id": 8,
+        "img": "https://i.ibb.co/RCYhQW0/marc8.png",
+        "name": "Warren Buffett",
+        "position": "Marketing Crew",
+        "rating": 4.9
+    }
+]

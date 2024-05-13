@@ -1,5 +1,6 @@
 
 import AllTabs from "../Components/AllTabs";
+import TeamSection from "../Components/ExtraSection/TeamSection";
 import Hero from "../Components/Hero";
 
 const Home = () => {
@@ -10,6 +11,9 @@ const Home = () => {
             </div>
             <div>
                 <AllTabs></AllTabs>
+            </div>
+            <div>
+                <TeamSection></TeamSection>
             </div>
         </div>
     );
