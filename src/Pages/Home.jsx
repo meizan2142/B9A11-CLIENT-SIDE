@@ -1,5 +1,6 @@
 
 import AllTabs from "../Components/AllTabs";
+import BlogSection from "../Components/ExtraSection/BlogSection";
 import TeamSection from "../Components/ExtraSection/TeamSection";
 import Hero from "../Components/Hero";
 
@@ -14,6 +15,9 @@ const Home = () => {
             </div>
             <div>
                 <TeamSection></TeamSection>
+            </div>
+            <div>
+                <BlogSection></BlogSection>
             </div>
         </div>
     );
