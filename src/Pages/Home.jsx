@@ -1,5 +1,6 @@
+
+import AllTabs from "../Components/AllTabs";
 import Hero from "../Components/Hero";
-// import Tab from "../Components/Tab";
 
 const Home = () => {
     return (
@@ -8,7 +9,7 @@ const Home = () => {
                 <Hero></Hero>
             </div>
             <div>
-                {/* <Tab></Tab> */}
+                <AllTabs></AllTabs>
             </div>
         </div>
     );

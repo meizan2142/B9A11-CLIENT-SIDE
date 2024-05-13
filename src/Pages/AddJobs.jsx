@@ -63,7 +63,7 @@ const AddJobs = () => {
                         </div>
                     </div>
                     <div className="col-span-full">
-                        <button className="btn btn-block transition ease-in delay-150 btn-info hover:-translate-y-1 hover:scale-100 shadow-md">Apply</button>
+                        <button className="btn btn-block transition ease-in delay-150 btn-info hover:-translate-y-1 hover:scale-100 shadow-md">Add</button>
                     </div>
                 </div>
             </form>
