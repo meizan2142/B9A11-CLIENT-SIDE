@@ -5,7 +5,7 @@ const AllTabs = () => {
         <Tabs className='lg:mt-16  mt-10'>
             <div className='flex justify-center items-center'>
                 <div>
-                    <TabList className='font-bold border-b-2'>
+                    <TabList className='font-bold border-b-2 text-info'>
                         <Tab>OnSite Jobs</Tab>
                         <Tab>Remote Jobs</Tab>
                         <Tab>Hybrid</Tab>
