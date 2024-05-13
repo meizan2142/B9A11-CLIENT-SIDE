@@ -6,7 +6,7 @@ const Navbar = () => {
         <NavLink className='lg:mr-7 font-bold text-base' to='/alljobs'>All Jobs</NavLink>
         <NavLink className='lg:mr-7 font-bold text-base' to='/alljobs'>Applied Jobs</NavLink>
         <NavLink className='lg:mr-7 font-bold text-base' to='/addjobs'>Add a Job</NavLink>
-        <NavLink className='font-bold text-base' to='/alljobs'>My Jobs</NavLink>
+        <NavLink className='font-bold text-base' to='/myjobs'>My Jobs</NavLink>
     </>
     return (
         <div className="navbar bg-base-100">
