@@ -1,10 +1,26 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 // import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
+
+    // Theme Conditions
+    const [theme, setTheme] = useState('light')
+    useEffect(() => {
+        localStorage.setItem('theme', theme)
+        const localTheme = localStorage.getItem('theme')
+        document.querySelector('html').setAttribute('data-theme', localTheme)
+    }, [theme])
+    const handleToggle = (e) => {
+        if (e.target.checked) {
+            setTheme('dark')
+        } else {
+            setTheme('light')
+        }
+    }
+
     const navLinks = <>
         <NavLink className='lg:mr-7 font-bold text-base' to='/'>Home</NavLink>
         <NavLink className='lg:mr-7 font-bold text-base' to='/alljobs'>All Jobs</NavLink>
@@ -38,7 +54,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end lg:gap-4 gap-2">
-                <input type="checkbox" className="toggle toggle-md" />
+                <input onChange={handleToggle} type="checkbox" className="toggle toggle-md" />
                 {
                     user ?
                         <div className="flex gap-5 items-center">
