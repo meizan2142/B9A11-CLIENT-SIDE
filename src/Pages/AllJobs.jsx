@@ -25,7 +25,7 @@ const AllJobs = () => {
                             <td>{job.posting_date}</td>
                             <td>{job.deadline}</td>
                             <td>{job.salary_range}</td>
-                            <td><NavLink to={`/jobdetails/${job._id}`} className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">View Details</NavLink></td>
+                            <td><NavLink to={`/alljobsdetails/${job._id}`} className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">View Details</NavLink></td>
                         </tr>)
                     }
                 </tbody>
