@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 
 const AllJobs = () => {
+    const allJobs = useLoaderData()
+    // console.log(allJobs);
     return (
         <div className="overflow-x-auto mt-8 lg:mt-10">
             <table className="table table-zebra">
@@ -16,14 +18,16 @@ const AllJobs = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                        <td>$200-300</td>
-                        <td><NavLink className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">View Details</NavLink></td>
-                    </tr>
+                    {
+                        allJobs.map(job => <tr key={job._id} >
+                            <th>1</th>
+                            <td>{job.job_title}</td>
+                            <td>{job.posting_date}</td>
+                            <td>{job.deadline}</td>
+                            <td>{job.salary_range}</td>
+                            <td><NavLink to={`/jobdetails/${job._id}`} className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">View Details</NavLink></td>
+                        </tr>)
+                    }
                 </tbody>
             </table>
         </div>
