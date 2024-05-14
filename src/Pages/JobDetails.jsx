@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from "react";
 const JobDetails = () => {
     const singleData = useLoaderData()
-    // console.log(singleData);
     const { id } = useParams()
     const [details, setDetails] = useState({})
     const { name, job_title, job_variant, salary_range, posting_date, deadline, applicants_number } = details
@@ -24,9 +23,6 @@ const JobDetails = () => {
                     <p><span className="font-bold">Salary Range</span>: {salary_range}</p>
                 </div>
                 <div className="space-y-2">
-                    {/* <p>Posting Date: {posting_date}</p>
-                    <p>Deadline: {deadline}</p>
-                    <p>Applicants Number: {applicants_number}</p> */}
                     <p><span className="font-bold">Posting Date</span>: {posting_date}</p>
                     <p><span className="font-bold">Deadline</span>: {deadline}</p>
                 </div>

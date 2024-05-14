@@ -1,12 +1,23 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+// import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
     const navLinks = <>
         <NavLink className='lg:mr-7 font-bold text-base' to='/'>Home</NavLink>
         <NavLink className='lg:mr-7 font-bold text-base' to='/alljobs'>All Jobs</NavLink>
-        <NavLink className='lg:mr-7 font-bold text-base' to='/appliedjobs'>Applied Jobs</NavLink>
-        <NavLink className='lg:mr-7 font-bold text-base' to='/addjobs'>Add a Job</NavLink>
-        <NavLink className='font-bold text-base' to='/myjobs'>My Jobs</NavLink>
+        {
+            user ?
+                <div>
+                    <NavLink className='lg:mr-7 font-bold text-base' to='/appliedjobs'>Applied Jobs</NavLink>
+                    <NavLink className='lg:mr-7 font-bold text-base' to='/addjobs'>Add a Job</NavLink>
+                    <NavLink className='font-bold text-base' to='/myjobs'>My Jobs</NavLink>
+                </div>
+                :
+                <li></li>
+        }
     </>
     return (
         <div className="navbar bg-base-100">
@@ -28,12 +39,19 @@ const Navbar = () => {
             </div>
             <div className="navbar-end lg:gap-4 gap-2">
                 <input type="checkbox" className="toggle toggle-md" />
-                <div tabIndex={0} role="button" className="btn btn-circle avatar  hidden lg:flex">
-                    <div className="w-10 rounded-full ">
-                        <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />  
-                    </div>
-                </div>
-                <NavLink to='/login' className="btn btn-outline btn-info transition ease-in delay-150   hover:-translate-y-1 hover:scale-110 shadow-md">Login</NavLink>
+                {
+                    user ?
+                        <div className="flex gap-5 items-center">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                </div>
+                            </div>
+                            <NavLink onClick={logOut} to="/login" className='btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md'>SignOut</NavLink>
+                        </div>
+                        :
+                        <NavLink to="/login" className='btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md'>LogIn</NavLink>
+                }
             </div>
         </div>
     );
