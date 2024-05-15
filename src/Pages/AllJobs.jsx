@@ -1,10 +1,16 @@
 import { NavLink, useLoaderData } from "react-router-dom";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 const AllJobs = () => {
+    useEffect(() => {
+        AOS.init({})
+    }, [])
     const allJobs = useLoaderData()
     // console.log(allJobs);
     return (
-        <div className="overflow-x-auto mt-8 lg:mt-10">
+        <div className="overflow-x-auto mt-8 lg:mt-10"  data-aos="fade-up"
+        data-aos-duration="3000">
             <table className="table table-zebra">
                 {/* head */}
                 <thead>

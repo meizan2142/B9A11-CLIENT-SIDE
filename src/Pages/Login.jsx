@@ -1,8 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Login = () => {
+    useEffect(() => {
+        AOS.init({})
+    }, [])
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
@@ -19,10 +24,18 @@ const Login = () => {
                 navigate(location?.state ? location?.state : '/')
             })
             .catch(err => console.log(err))
+        // googleLogIn(email, password)
+        // console.log(email, password);
+        //     // .then(res => {, googleLogIn
+        //     //     console.log(res.user)
+        //     //     navigate(location?.state ? location?.state : '/')
+        //     // })
+        //     // .catch(err => console.log(err))
     }
     return (
         <div className="mt-16 rounded-lg">
-            <div className="hero-content flex-col space-y-3">
+            <div className="hero-content flex-col space-y-3" data-aos="fade-up"
+                data-aos-duration="3000">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold text-info">Login now!</h1>
                 </div>
@@ -45,7 +58,7 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6 space-y-5">
                             <button className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">Login</button>
-                            <button className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md"><FaGoogle />
+                            <button onClick={() => googleLogIn()} className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md"><FaGoogle />
                                 Sign In with Google</button>
                             <p>New to Here? Please, <Link to='/register' className="font-bold text-info">Register</Link></p>
                         </div>

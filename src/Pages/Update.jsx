@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Update = () => {
+    useEffect(() => {
+        AOS.init({})
+    }, [])
     const [selectedDate, setSelectedDate] = useState(null)
     return (
         <section className="p-6 shadow-lg rounded-lg lg:mt-10 mt-5">
-            <form className="container flex flex-col mx-auto space-y-12">
+            <form className="container flex flex-col mx-auto space-y-12" data-aos="fade-up"
+                data-aos-duration="3000">
                 <div className="grid grid-cols-4 gap-6 p-6">
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-4 ">
                         <div className="col-span-full sm:col-span-3">

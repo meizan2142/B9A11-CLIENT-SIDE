@@ -1,7 +1,12 @@
 import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { useEffect, useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const JobDetails = () => {
+    useEffect(() => {
+        AOS.init({})
+    }, [])
     const singleData = useLoaderData()
     const { id } = useParams()
     const [details, setDetails] = useState({})
@@ -11,7 +16,8 @@ const JobDetails = () => {
         setDetails(anyData)
     }, [])
     return (
-        <div className="card card-compact lg:w-96 bg-base-100 shadow-xl">
+        <div className="card card-compact lg:w-96 bg-base-100 shadow-xl" data-aos="fade-up"
+        data-aos-duration="3000">
             <div className="card-body">
                 <h2 className="card-title font-bold">{name}</h2>
                 <div className="flex justify-between items-center">

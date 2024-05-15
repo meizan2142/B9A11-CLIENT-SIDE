@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLoaderData, useParams } from "react-router-dom";
-
+import { useLoaderData, useParams } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const AllJobDetails = () => {
+    useEffect(() => {
+        AOS.init({})
+    }, [])
     const singleData = useLoaderData()
     const { id } = useParams()
     const [details, setDetails] = useState({})
@@ -12,7 +16,8 @@ const AllJobDetails = () => {
     }, [])
     return (
         <div className="card card-compact lg:w-96 bg-base-100 shadow-xl mt-10">
-            <div className="card-body">
+            <div className="card-body" data-aos="fade-up"
+                data-aos-duration="3000">
                 <div>
                     <img className="lg:w-96" src={img} alt="" />
                 </div>
@@ -30,8 +35,6 @@ const AllJobDetails = () => {
                     <p><span className="font-bold">Deadline</span>: {deadline}</p>
                 </div>
                 <div className="card-actions justify-end">
-                    {/* <NavLink to={'/'} className="btn btn-outline btn-info transition ease-in delay-150   hover:-translate-y-1 hover:scale-110 shadow-md">Apply</NavLink> */}
-                    {/* Open the modal using document.getElementById('ID').showModal() method */}
                     <button className="btn btn-outline btn-info transition ease-in delay-150   hover:-translate-y-1 hover:scale-110 shadow-md" onClick={() => document.getElementById('my_modal_1').showModal()}>Apply</button>
                     <dialog id="my_modal_1" className="modal">
                         <div className="modal-box">
@@ -39,7 +42,6 @@ const AllJobDetails = () => {
                             <p className="py-4">Press ESC key or click the button below to close</p>
                             <div className="modal-action">
                                 <form method="dialog">
-                                    {/* if there is a button in form, it will close the modal */}
                                     <button className="btn">Close</button>
                                 </form>
                             </div>

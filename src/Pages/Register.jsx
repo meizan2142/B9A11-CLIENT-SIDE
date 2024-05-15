@@ -1,10 +1,14 @@
 import Swal from 'sweetalert2'
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from 'react-router-dom';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    useEffect(() => {
+        AOS.init({})
+    }, [])
+    const { createUser } = useContext(AuthContext)
     // console.log(createUser);
     const handleSignUp = e => {
         e.preventDefault()
@@ -33,7 +37,8 @@ const Register = () => {
     }
     return (
         <div className="mt-16 rounded-lg">
-            <div className="hero-content flex-col space-y-3">
+            <div className="hero-content flex-col space-y-3" data-aos="fade-up"
+                data-aos-duration="3000">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold text-info">Register!</h1>
                 </div>
