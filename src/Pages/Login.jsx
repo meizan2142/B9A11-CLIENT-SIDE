@@ -8,7 +8,7 @@ const Login = () => {
     useEffect(() => {
         AOS.init({})
     }, [])
-    const { signIn } = useContext(AuthContext)
+    const { signIn, googleLogIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const handleSignIn = e => {
@@ -26,7 +26,7 @@ const Login = () => {
             .catch(err => console.log(err))
         // googleLogIn(email, password)
         // console.log(email, password);
-        //     // .then(res => {, googleLogIn
+        //     // .then(res => {
         //     //     console.log(res.user)
         //     //     navigate(location?.state ? location?.state : '/')
         //     // })

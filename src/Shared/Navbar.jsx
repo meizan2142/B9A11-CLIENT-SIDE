@@ -26,10 +26,11 @@ const Navbar = () => {
         <NavLink className='lg:mr-7 font-bold text-base' to='/alljobs'>All Jobs</NavLink>
         {
             user ?
-                <div>
+                <div className="grid grid-cols-1 gap-2 lg:flex">
                     <NavLink className='lg:mr-7 font-bold text-base' to='/appliedjobs'>Applied Jobs</NavLink>
                     <NavLink className='lg:mr-7 font-bold text-base' to='/addjobs'>Add a Job</NavLink>
-                    <NavLink className='font-bold text-base' to='/myjobs'>My Jobs</NavLink>
+                    <NavLink className='lg:mr-7 font-bold text-base' to='/myjobs'>My Jobs</NavLink>
+                    <NavLink className='font-bold text-base' to='/blogs'>Blogs</NavLink>
                 </div>
                 :
                 <li></li>
