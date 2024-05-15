@@ -1,15 +1,17 @@
 import Swal from 'sweetalert2'
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 const Register = () => {
     useEffect(() => {
         AOS.init({})
     }, [])
-    const { createUser } = useContext(AuthContext)
+    const { createUser, setUser } = useContext(AuthContext)
     // console.log(createUser);
+    const navigate = useNavigate()
+    const location = useLocation()
     const handleSignUp = e => {
         e.preventDefault()
         const form = e.target
@@ -22,6 +24,8 @@ const Register = () => {
         createUser(email, password)
             .then(res => {
                 console.log(res.user);
+                setUser(res.user)
+                navigate(location?.state ? location?.state : '/')
                 if (res.user) {
                     Swal.fire({
                         title: 'Hurray!',

@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-// import { Tooltip } from 'react-tooltip'
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
-
+    // console.log(user);
     // Theme Conditions
     const [theme, setTheme] = useState('light')
     useEffect(() => {
@@ -22,15 +22,15 @@ const Navbar = () => {
     }
 
     const navLinks = <>
-        <NavLink className='lg:mr-7 font-bold text-base' to='/'>Home</NavLink>
-        <NavLink className='lg:mr-7 font-bold text-base' to='/alljobs'>All Jobs</NavLink>
+        <NavLink className='lg:mr-7 font-bold text-base hover:text-[#FECA16]' to='/'>Home</NavLink>
+        <NavLink className='lg:mr-7 font-bold text-base hover:text-[#FECA16]' to='/alljobs'>All Jobs</NavLink>
         {
             user ?
                 <div className="grid grid-cols-1 gap-2 lg:flex">
-                    <NavLink className='lg:mr-7 font-bold text-base' to='/appliedjobs'>Applied Jobs</NavLink>
-                    <NavLink className='lg:mr-7 font-bold text-base' to='/addjobs'>Add a Job</NavLink>
-                    <NavLink className='lg:mr-7 font-bold text-base' to='/myjobs'>My Jobs</NavLink>
-                    <NavLink className='font-bold text-base' to='/blogs'>Blogs</NavLink>
+                    <NavLink className='lg:mr-7 font-bold text-base hover:text-[#FECA16]' to='/appliedjobs'>Applied Jobs</NavLink>
+                    <NavLink className='lg:mr-7 font-bold text-base hover:text-[#FECA16]' to='/addjobs'>Add a Job</NavLink>
+                    <NavLink className='lg:mr-7 font-bold text-base hover:text-[#FECA16]' to='/myjobs'>My Jobs</NavLink>
+                    <NavLink className='font-bold text-base hover:text-[#FECA16]' to='/blogs'>Blogs</NavLink>
                 </div>
                 :
                 <li></li>
@@ -60,8 +60,9 @@ const Navbar = () => {
                     user ?
                         <div className="flex gap-5 items-center">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                <div className="w-10 rounded-full" data-tooltip-id="my-tooltip" data-tooltip-content={`${user.displayName}  ||  ${user.email}`}>
+                                    <img className="h-10 w-10 rounded-full" alt="" src={user.photoURL} />
+                                    <Tooltip id="my-tooltip" />
                                 </div>
                             </div>
                             <NavLink onClick={logOut} className='btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md'>SignOut</NavLink>

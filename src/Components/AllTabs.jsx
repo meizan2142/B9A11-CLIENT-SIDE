@@ -27,7 +27,8 @@ const AllTabs = () => {
                     </TabList>
                     <div className='mt-8'>
                         <TabPanel>
-                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6'>
+                            <div
+                                className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6'>
                                 {
                                     jobs.filter(s => s.job_variant === 'Onsite').map(job => <JobCard key={job._id} job={job}></JobCard>)
                                 }

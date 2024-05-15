@@ -8,7 +8,7 @@ const Login = () => {
     useEffect(() => {
         AOS.init({})
     }, [])
-    const { signIn, googleLogIn } = useContext(AuthContext)
+    const { signIn, googleLogIn, user } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const handleSignIn = e => {
@@ -24,14 +24,19 @@ const Login = () => {
                 navigate(location?.state ? location?.state : '/')
             })
             .catch(err => console.log(err))
-        // googleLogIn(email, password)
-        // console.log(email, password);
-        //     // .then(res => {
-        //     //     console.log(res.user)
-        //     //     navigate(location?.state ? location?.state : '/')
-        //     // })
-        //     // .catch(err => console.log(err))
     }
+
+    // Google
+    const handleGoogleLogin = () => {
+        googleLogIn()
+            .then(res => console.log(res.user))
+        navigate(location?.state ? location?.state : '/')
+    }
+    useEffect(() => {
+        if (user) {
+            navigate(location.state)
+        }
+    }, [])
     return (
         <div className="mt-16 rounded-lg">
             <div className="hero-content flex-col space-y-3" data-aos="fade-up"
@@ -58,7 +63,7 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6 space-y-5">
                             <button className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md">Login</button>
-                            <button onClick={() => googleLogIn()} className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md"><FaGoogle />
+                            <button onClick={handleGoogleLogin} className="btn btn-outline transition ease-in delay-150  btn-info hover:-translate-y-1 hover:scale-110 shadow-md"><FaGoogle />
                                 Sign In with Google</button>
                             <p>New to Here? Please, <Link to='/register' className="font-bold text-info">Register</Link></p>
                         </div>

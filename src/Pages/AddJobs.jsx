@@ -8,9 +8,25 @@ const AddJobs = () => {
         AOS.init({})
     }, [])
     const [selectedDate, setSelectedDate] = useState(null)
+    const handleAddJobs = e => {
+        e.preventdefault()
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const picture = form.picture.value;
+        const title = form.title.value;
+        // const category = form.category.value;
+        // const range = form.range.value;
+        const description = form.description.value;
+        const date = form.date.value;
+        const deadline = form.deadline.value;
+        const applicants = form.applicants.value;
+        const newCandidate = {name, email, picture, title, description, date, deadline, applicants}
+        console.log(newCandidate);
+    }
     return (
         <section className="p-6 shadow-lg rounded-lg lg:mt-10 mt-5">
-            <form className="container flex flex-col mx-auto space-y-12" data-aos="fade-up"
+            <form onSubmit={handleAddJobs} className="container flex flex-col mx-auto space-y-12" data-aos="fade-up"
                 data-aos-duration="3000">
                 <div className="grid grid-cols-4 gap-6 p-6">
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-4 ">
@@ -30,25 +46,23 @@ const AddJobs = () => {
                             <label htmlFor="lastname" className="text-sm font-bold">Job Title</label>
                             <input type="text" placeholder="Job Title" name="title" className="w-full rounded-md p-2 border" />
                         </div>
-                        <div className="col-span-full sm:col-span-3">
+                        {/* <div className="col-span-full sm:col-span-3">
                             <label htmlFor="firstname" className="text-sm font-bold">Job Category</label>
-                            <select className="select select-bordered w-full rounded-md p-2 border">
-                                <option disabled selected>Choose Your Job Category</option>
-                                <option>Onsite</option>
-                                <option>Remote</option>
-                                <option>Hybrid</option>
-                                <option>Part-Time</option>
+                            <select name="category" className="select select-bordered w-full rounded-md p-2 border">
+                                <option value="Onsite">Onsite</option>
+                                <option value="Remote">Remote</option>
+                                <option value="Hybrid">Hybrid</option>
+                                <option value="Part Time">Part Time</option>
                             </select>
-                        </div>
-                        <div className="col-span-full sm:col-span-3">
+                        </div> */}
+                        {/* <div className="col-span-full sm:col-span-3">
                             <label htmlFor="firstname" className="text-sm font-bold">Salary Range</label>
-                            <select className="select select-bordered w-full rounded-md p-2 border">
-                                <option disabled selected>Choose Your Salary Range</option>
-                                <option>$200-300</option>
-                                <option>$300-400</option>
-                                <option>$500-600</option>
+                            <select name="range" className="select select-bordered w-full rounded-md p-2 border">
+                                <option value="$200-300">$200-300</option>
+                                <option value="$300-400">$300-400</option>
+                                <option value="$500-600">$500-600</option>
                             </select>
-                        </div>
+                        </div> */}
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="firstname" className="text-sm font-bold">Job Description</label>
                             <input type="text" placeholder="Job Description" name="description" className="w-full rounded-md p-2 border" />
@@ -65,7 +79,7 @@ const AddJobs = () => {
                         </div>
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="lastname" className="text-sm font-bold">Job Applicants Number</label>
-                            <input type="Number" defaultValue={0} placeholder="Job Applicants Number" name="applicants" className="w-full rounded-md p-2 border" />
+                            <input type="Number" placeholder="Job Applicants Number" name="applicants" className="w-full rounded-md p-2 border" />
                         </div>
                     </div>
                     <div className="col-span-full">
