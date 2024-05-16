@@ -56,7 +56,7 @@ const AddJobs = () => {
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-4 ">
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="firstname" className="text-sm font-bold">Name</label>
-                            <input type="text" placeholder="Your Name" name="name" className="w-full rounded-md p-2 border" />
+                            <input  type="text" placeholder="Your Name" name="name" className="w-full rounded-md p-2 border" />
                         </div>
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="lastname" className="text-sm font-bold">Email</label>
