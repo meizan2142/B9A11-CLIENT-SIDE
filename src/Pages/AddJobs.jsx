@@ -1,14 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from 'sweetalert2'
 const AddJobs = () => {
     useEffect(() => {
         AOS.init({})
     }, [])
     const [selectedDate, setSelectedDate] = useState(null)
+    const { user } = useContext(AuthContext)
     const handleAddJobs = e => {
+        console.log(user.email);
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
@@ -23,6 +27,26 @@ const AddJobs = () => {
         const applicants = form.applicants.value;
         const newCandidate = { name, email, picture, title, description, date, category, range, deadline, applicants }
         console.log(newCandidate);
+        fetch(`${import.meta.env.VITE_API_URL}/addedjobs`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(newCandidate)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Added Jobs successfully',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            })
+        console.log(newCandidate)
     }
     return (
         <section className="p-6 shadow-lg rounded-lg lg:mt-10 mt-5">

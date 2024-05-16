@@ -9,14 +9,15 @@ const AllJobs = () => {
     const allJobs = useLoaderData()
     // console.log(allJobs);
     return (
-        <div className="overflow-x-auto mt-8 lg:mt-10"  data-aos="fade-up"
-        data-aos-duration="3000">
+        <div className="overflow-x-auto mt-8 lg:mt-10" data-aos="fade-up"
+            data-aos-duration="3000">
             <table className="table table-zebra">
                 {/* head */}
                 <thead>
                     <tr>
                         <th></th>
                         <th>Job Title</th>
+                        <th>Applicants Number</th>
                         <th>Job Posting Date</th>
                         <th>Application Deadline</th>
                         <th>Salary Range</th>
@@ -28,6 +29,7 @@ const AllJobs = () => {
                         allJobs.map(job => <tr key={job._id} >
                             <td></td>
                             <td>{job.job_title}</td>
+                            <td>{job.applicants_number}</td>
                             <td>{job.posting_date}</td>
                             <td>{job.deadline}</td>
                             <td>{job.salary_range}</td>
