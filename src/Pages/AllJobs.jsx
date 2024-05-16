@@ -26,7 +26,7 @@ const AllJobs = () => {
                 <tbody>
                     {
                         allJobs.map(job => <tr key={job._id} >
-                            <th>1</th>
+                            <td></td>
                             <td>{job.job_title}</td>
                             <td>{job.posting_date}</td>
                             <td>{job.deadline}</td>

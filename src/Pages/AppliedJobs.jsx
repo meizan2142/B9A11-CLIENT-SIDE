@@ -10,7 +10,6 @@ const AppliedJobs = () => {
             data-aos-duration="3000">
             <div className="flex items-center justify-center mb-8">
                 <select className="select rounded-md select-bordered p-2 border">
-                    <option disabled selected>Job Category</option>
                     <option>OnSite</option>
                     <option>Part Time</option>
                     <option>Hybrid</option>

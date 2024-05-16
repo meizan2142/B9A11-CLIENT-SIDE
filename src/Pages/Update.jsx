@@ -33,7 +33,6 @@ const Update = () => {
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="firstname" className="text-sm font-bold">Job Category</label>
                             <select className="select select-bordered w-full rounded-md p-2 border">
-                                <option disabled selected>Choose Your Job Category</option>
                                 <option>Onsite</option>
                                 <option>Remote</option>
                                 <option>Hybrid</option>
@@ -43,7 +42,6 @@ const Update = () => {
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="firstname" className="text-sm font-bold">Salary Range</label>
                             <select className="select select-bordered w-full rounded-md p-2 border">
-                                <option disabled selected>Choose Your Salary Range</option>
                                 <option>$200-300</option>
                                 <option>$300-400</option>
                                 <option>$500-600</option>

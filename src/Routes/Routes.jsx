@@ -13,6 +13,11 @@ import JobDetails from "../Pages/JobDetails";
 import PrivateRoute from "./PrivateRoute";
 import AllJobDetails from "../Pages/AllJobDetails";
 import Blogs from "../Pages/Blogs";
+import Access from "../DifferentText/Access";
+import Refresh from "../DifferentText/Refresh";
+import Express from "../DifferentText/Express";
+import NextJs from "../DifferentText/NextJs";
+import MyCode from "../DifferentText/MyCode";
 
 const router = createBrowserRouter([
     {
@@ -67,6 +72,26 @@ const router = createBrowserRouter([
                 path: '/jobdetails/:id',
                 element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
                 loader: () => fetch(`${import.meta.env.VITE_API_URL}/jobs`)
+            },
+            {
+                path: '/access',
+                element: <Access></Access>
+            },
+            {
+                path: '/refresh',
+                element: <Refresh></Refresh>
+            },
+            {
+                path: '/express',
+                element: <Express></Express>
+            },
+            {
+                path: '/nextjs',
+                element: <NextJs></NextJs>
+            },
+            {
+                path: '/mycode',
+                element: <MyCode></MyCode>
             },
         ]
     },
