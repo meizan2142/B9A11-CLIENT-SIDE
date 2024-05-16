@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useLocation, useNavigate, useParams } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Swal from 'sweetalert2'
 const AllJobDetails = () => {
     useEffect(() => {
         AOS.init({})
@@ -24,6 +25,12 @@ const AllJobDetails = () => {
         const newCandidate = { name, email }
         console.log(newCandidate);
         if (newCandidate) {
+            Swal.fire({
+                title: 'Success',
+                text: 'Submitted Successfully',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
             navigate(location?.state ? location?.state : '/alljobs')
         }
     }

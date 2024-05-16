@@ -1,5 +1,5 @@
 import { MdDelete, MdEdit } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
@@ -7,6 +7,9 @@ const MyJobs = () => {
     useEffect(() => {
         AOS.init({})
     }, [])
+    const myJobs = useLoaderData()
+    console.log(myJobs);
+    // const {title} = myJobs
     return (
         <div className="overflow-x-auto mt-8 lg:mt-10">
             <table className="table table-zebra" data-aos="fade-up"
@@ -16,21 +19,25 @@ const MyJobs = () => {
                         <th></th>
                         <th>Job Title</th>
                         <th>Job Posting Date</th>
+                        <th>Job Deadline</th>
                         <th>Job Category</th>
                         <th>Salary Range</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                        <td>$200-300</td>
-                        <td><Link to='/updatejobs'><MdEdit className="w-9 h-6" /></Link></td>
-                        <td><MdDelete className="w-9 h-6" /></td>
-                    </tr>
+                    {
+                        myJobs.map(job => <tr key={job._id}>
+                            <th></th>
+                            <td>{job.title}</td>
+                            <td>{job.date}</td>
+                            <td>{job.deadline}</td>
+                            <td>{job.category}</td>
+                            <td>{job.range}</td>
+                            <td><Link to='/updatejobs'><MdEdit className="w-9 h-6" /></Link></td>
+                            <td><MdDelete className="w-9 h-6" /></td>
+                        </tr>)
+                    }
                 </tbody>
             </table>
         </div>

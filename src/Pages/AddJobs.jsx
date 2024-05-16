@@ -82,9 +82,10 @@ const AddJobs = () => {
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="firstname" className="text-sm font-bold">Salary Range</label>
                             <select name="range" className="select select-bordered w-full rounded-md p-2 border">
-                                <option value="$200-300">$200-300</option>
-                                <option value="$300-400">$300-400</option>
-                                <option value="$500-600">$500-600</option>
+                                <option value="$200-300">$200-$300</option>
+                                <option value="$300-400">$300-$400</option>
+                                <option value="$500-600">$500-$600</option>
+                                <option value="$500-600">$600-$700</option>
                             </select>
                         </div>
                         <div className="col-span-full sm:col-span-3">
