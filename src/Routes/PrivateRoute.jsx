@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 
-const PrivateRoute = ({children}) => {
-    const { user } = useContext(AuthContext)
+const PrivateRoute = ({ children }) => {
+    const { user, loading } = useContext(AuthContext)
     const location = useLocation()
-    if (user?.email) {
+    if (loading) {
+        return <span className="loading loading-spinner text-warning w-14"></span>
+    }
+    else if (user?.email) {
         return children
     }
     return <Navigate state={location.pathname} to="/login" replace></Navigate>
